@@ -11,7 +11,7 @@ default: example4
 example4: $(objects)
 	$(CC) -o $@ $^
 
-example4.o: example4.c
+#example4.o: example4.c
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $(LDFLAGS) -o $@ $<
