@@ -5,8 +5,8 @@ int multiplybytwo(int a);
 int main(void)
 {
 	int a, b, d;
-	a = -6;
-	b = 8;
+	a = 2;
+	b = 4;
 	d = multiplybytwo(a) * multiplybytwo(b);
 	printf("2a * 2b is %d\n", d);
 
