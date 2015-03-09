@@ -5,7 +5,7 @@ multiply:
 	bx lr
 	nop
 	.type multiply, function
-	.size multipy, .-multiply
+	.size multiply, .-multiply
 
 	.global multiplyadd
 multiplyadd:

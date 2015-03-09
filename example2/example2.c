@@ -10,7 +10,7 @@ int main(void)
 	a = 10;
 	b = 14;
 	c = 3;
-	d = multiply(a,b);
+	d = multiply2(a,b);
 	printf("a * b is %d\n", d);
 	d = multiplyadd(a,b,c);
 	printf("a * b + c is %d\n", d);
