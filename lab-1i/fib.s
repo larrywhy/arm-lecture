@@ -9,23 +9,37 @@
 	.type fibonacci, function
 
 fibonacci:
-	push	{r3, r4, r5, lr}
-	cmp	r0, #1
-	it	le			@ if r0 == 1 || r0 ==0
-	pople	{r3, r4, r5, pc}	@ return r0
-	
-	subs	r3, r0, #1		@ begin with r0 == 2
-	mov	r4, #0			@ r4 initialize to 0
-	mov	r5, #1			@ r5 initialize to 1
-loop:
-	adds	r6, r4, r5		@ r6 is result , r4 + r5 are sum of previos addition.
-	mov	r4, r5			@ shift r5 to r4
-	mov	r5, r6			@ shift r6 to r5
+	push {r3, r4, r5, lr}
 
-	subs	r3, r3, #1		@ loop variable
-	bne	loop			@ brench instruction
-	mov 	r0, r6			@ result r0 = r6
-	pop	{r3, r4, r5, pc}	@ return result
+	subs	r4, r0, #0
+	ble	.L3
+
+	cmp	r4, #1
+	beq	.L4
+
+	subs	r3, r4, #1
+	mov 	r5, #0
+	mov	r6, #1
+loop:
+	adds	r7, r5, r6
+	mov	r5, r6
+	mov	r6, r7
+
+	subs	r3, r3, #1	@loop 
+	bne 	loop
+
+	mov r0, r7
+
+	pop {r3, r4, r5, pc}		@EPILOG
+
+
+.L3:
+	mov r0, #0			@ R0 = 0
+	pop {r3, r4, r5, pc}		@ EPILOG
+
+.L4:
+	mov r0, #1			@ R0 = 1
+	pop {r3, r4, r5, pc}		@ EPILOG
 
 	.size fibonacci, .-fibonacci
 	.end
